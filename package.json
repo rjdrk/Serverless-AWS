@@ -1,5 +1,8 @@
 {
   "devDependencies": {
-    "serverless-offline": "^13.7.0"
+    "moment-timezone": "^0.5.45",
+    "serverless-offline": "^13.7.0",
+    "serverless-plugin-include-dependencies": "^6.1.1",
+    "serverless-prune-plugin": "^2.0.2"
   }
 }

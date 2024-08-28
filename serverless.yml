@@ -11,10 +11,24 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-prune-plugin
+  - serverless-plugin-include-dependencies
 
+custom:
+  prune:
+    automatic: true
+    number: 1
+
+package:
+  exclude:
+    - node_modules/** 
+  
 functions:
   servicioGET:
     handler: handlers/handlerGET.servicioGET
+    package:
+      patterns:
+        - "handlers/handlerGET.js"
     events: 
       - httpApi:
           path: /servicioGET
@@ -22,7 +36,19 @@ functions:
 
   servicioPOST:
     handler: handlers/handlerPOST.servicioPOST
+    package:
+      patterns:
+        - "handlers/handlerPOST.js"
     events:
       - httpApi:
           path: /servicioPOST
           method: post
+  servicioMoment:
+    handler: handlers/handlerMoment.GetMoment
+    package:
+      patterns:
+        - "handlers/handlerMoment.js"
+    events:
+      - httpApi:
+          path: /servicioMoment
+          method: get
